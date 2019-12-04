@@ -221,6 +221,14 @@ async def subscribe_without_login(url, channels):
                     logging.info(f"send: {sub_str}")
                     await asyncio.sleep(5)
                     continue
+            # except websockets.exceptions.ConnectionClosedError as e:
+            #     logging.error(e)
+            #     print("连接异常关闭，正在重连订阅……")
+            #     async with websockets.connect(url) as ws:
+            #         await ws.send(sub_str)
+            #         logging.info(f"send: {sub_str}")
+            #         await asyncio.sleep(5)
+            #         continue
             await asyncio.sleep(2)
 
             res = inflate(res_1).decode('utf-8')
@@ -290,9 +298,6 @@ async def subscribe_without_login(url, channels):
                                 await ws.send(sub_str)
                                 print(timestamp + f"send: {sub_str}")
                                 logging.info(f"send: {sub_str}")
-            else:
-                # 订阅频道不是深度频道
-                continue
 
 
 # subscribe channels need login
@@ -414,13 +419,13 @@ url = 'wss://real.okex.com:8443/ws/v3'
 # 公共-5档深度频道
 # channels = [["spot/depth5:ETH-USDT"]]
 # 公共-200档深度频道
-channels = ["spot/depth:EOS-BTC"]
+# channels = ["spot/depth:EOS-BTC"]
 
 # 交割合约
 # 用户持仓频道
 # channels = ["futures/position:EOS-USD-191227"]
 # 用户账户频道
-# channels = ["futures/account:BTC"]
+# channels = ["futures/account:BTC-USDT"]
 # 用户交易频道
 # channels = ["futures/order:XRP-USD-191227"]
 # 公共-全量合约信息频道
@@ -438,7 +443,7 @@ channels = ["spot/depth:EOS-BTC"]
 # 公共-5档深度频道
 # channels = ["futures/depth5:BTC-USD-191129"]
 # 公共-400档深度频道
-# channels = ["futures/depth:BTC-USDT-191227"]
+channels = ["futures/depth:LTC-USD-191213"]
 # 公共-全量深度频道
 # channels = ["futures/depth_l2_tbt:BTC-USD-191227"]
 # 公共-标记价格频道
@@ -446,7 +451,7 @@ channels = ["spot/depth:EOS-BTC"]
 
 # 永续合约
 # 用户持仓频道
-# channels = ["swap/position:BTC-USD-SWAP"]
+# channels = ["swap/position:XRP-USD-SWAP"]
 # 用户账户频道
 # channels = ["swap/account:BTC-USD-SWAP"]
 # 用户交易频道

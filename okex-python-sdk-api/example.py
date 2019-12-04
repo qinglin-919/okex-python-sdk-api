@@ -28,9 +28,9 @@ time = get_timestamp()
 
 if __name__ == '__main__':
 
-    api_key = "465b8dbc-f671-4562-b2d0-0111cb8bf036"
-    seceret_key = "01A6CA8B11D92810B50B7F61ABA5A9F4"
-    passphrase = "123456"
+    api_key = ""
+    seceret_key = ""
+    passphrase = ""
 
     # 资金账户API
     # account api test
@@ -70,11 +70,11 @@ if __name__ == '__main__':
     # 获取币币账户信息 （20次/2s）
     # result = spotAPI.get_account_info()
     # 获取单一币种账户信息 （20次/2s）
-    # result = spotAPI.get_coin_account_info('xrp')
+    # result = spotAPI.get_coin_account_info('okb')
     # 账单流水查询 最近3个月 （最近3个月的数据）（20次/2s）
     # result = spotAPI.get_ledger_record('XRP')
     # 下单 （100次/2s）
-    # result = spotAPI.take_order('xrp-usdt', 'sell', type='market', price='0.2082', size='5')
+    # result = spotAPI.take_order('xrp-usdt', 'buy', client_oid='', type='limit', price='0.2266', size='1')
 
     # take orders
     # params = [
@@ -89,7 +89,8 @@ if __name__ == '__main__':
     # revoke orders
     # 批量撤消订单 （每次只能下最多4个币对且每个币对可批量下10个单）（50次/2s）
     # params = [
-    #     {'instrument_id': 'xrp-usdt', 'order_ids': ['3886921163671552', '3886952428560384']}
+    #     {'instrument_id': 'xrp-usdt', 'order_ids': ['3956994307262464']
+    #      }
     # ]
     # result = spotAPI.revoke_orders(params)
     # 获取订单列表 （最近3个月的订单信息）（20次/2s）
@@ -211,7 +212,7 @@ if __name__ == '__main__':
     # 撤销指定订单 （40次/2s）（根据underlying，分别限速）
     # result = futureAPI.revoke_order('XRP-USD-191227', '3933278497446913')
     # 批量撤销订单 （每次最多可撤10个单）（20 次/2s）（根据underlying，分别限速）
-    # result = futureAPI.revoke_orders('XRP-USD-191227', ["3853889302246401", "3853889302246403"])
+    # result = futureAPI.revoke_orders('XRP-USD-191227', order_ids=["3853889302246401", "3853889302246403"])
     # 获取订单列表 （最近7天的数据）（20 次/2s）（根据underlying，分别限速）
     # result = futureAPI.get_order_list('XRP-USD-191227', '0')
     # 获取订单信息 （已撤销的未成交单只保留2个小时）（40次/2s）（根据underlying，分别限速）
@@ -290,7 +291,7 @@ if __name__ == '__main__':
     # 撤单 （40次/2s）
     # result = swapAPI.revoke_order('XRP-USD-SWAP', '369874940524453888')
     # 批量撤单 （每个币对可批量撤10个单）（20次/2s）
-    # result = swapAPI.revoke_orders('XRP-USD-SWAP', ["3698749403525888", "369874940532842496"])
+    # result = swapAPI.revoke_orders('XRP-USD-SWAP', ids=["3698749403525888", "369874940532842496"])
     # 获取所有订单列表 （可查询最近7天20000条数据，支持分页，分页返回结果最大为100条）（20次/2s）
     # result = swapAPI.get_order_list('XRP-USD-SWAP', '0')
     # 获取订单信息 （只能查询最近3个月的已成交和已撤销订单信息，已撤销的未成交单只保留2个小时）（40次/2s）

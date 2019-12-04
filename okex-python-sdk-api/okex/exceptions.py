@@ -15,7 +15,7 @@ class OkexAPIException(Exception):
                 self.message = json_res['message']
             else:
                 self.code = 'None'
-                self.message = 'Server error'
+                self.message = 'error'
 
         self.status_code = response.status_code
         self.response = response
