@@ -1,12 +1,14 @@
 如何使用？
 
-第一步：下载代码
+第一步：下载代码 & 版本要求
 
 1.1 下载代码：
 
     git clone https://github.com/qinglin-919/okex-python-sdk-api.git
     
-强烈建议调用前阅读 Read before use.txt
+1.2 python版本需3.5+  使用 websockets 需要Python≥3.6.1
+
+1.3 强烈建议用户使用前阅读 Read before use.txt
 
 第二步：配置自己的API key
 
@@ -14,11 +16,11 @@
 
 第三步：调用相关接口，在项目根目录下，找到相应文件
 
-3.1 调用RestAPI
+3.1 使用RestAPI
     
     参阅调试example.py
     
-3.2 调用websocketAPI
+3.2 使用websocket
 
     参阅调试websocket_example.py
     
